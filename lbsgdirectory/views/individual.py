@@ -8,7 +8,7 @@ class LetterboxViews(object):
         self.context = context
         self.request = request
     
-    @view_config(context=LetterBox, renderer="lbsgdirectory:templates/mytemplate.pt")
+    @view_config(context=LetterBox, renderer="lbsgdirectory:templates/individual.pt")
     def view_letterbox(self):
         return {'project': 'individual', 'coords': self.context.latlon()}
     

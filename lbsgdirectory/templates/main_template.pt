@@ -44,7 +44,7 @@
                <span class="icon-bar"></span>
                <span class="icon-bar"></span>
              </button>
-             <a class="navbar-brand" href="#">Bootstrap theme</a>
+             <a class="navbar-brand" href="#">The Directory</a>
            </div>
            <div class="navbar-collapse collapse">
              <ul class="nav navbar-nav">
@@ -69,31 +69,12 @@
        </div>
        
       <div class="container">
-        <div class="row">
-          <div class="col-md-2">
-            <img class="logo img-responsive" src="${request.static_url('lbsgdirectory:static/pyramid.png')}" alt="pyramid web framework">
-          </div>
-          <div class="col-md-10">
-              <div id="content">
                   <tal:body-slot metal:define-slot="body" />
-              </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="links">
-            <ul>
-              <li class="current-version">Currently v1.5</li>
-              <li><i class="glyphicon glyphicon-bookmark icon-muted"></i><a href="http://docs.pylonsproject.org">Docs</a></li>
-              <li><i class="glyphicon glyphicon-cog icon-muted"></i><a href="https://github.com/Pylons/pyramid">Github Project</a></li>
-              <li><i class="glyphicon glyphicon-globe icon-muted"></i><a href="irc://irc.freenode.net#pyramid">IRC Channel</a></li>
-              <li><i class="glyphicon glyphicon-home icon-muted"></i><a href="http://pylonsproject.org">Pylons Project</a></li>
-          </div>
-        </div>
-        <div class="row">
-          <div class="copyright">
-            Copyright © Pylons Project
-          </div>
-        </div>
+          <div class="row">
+            <div class="copyright">
+              Copyright © The Letter Box Study Group
+            </div>
+      </div>
     </div>
 
 

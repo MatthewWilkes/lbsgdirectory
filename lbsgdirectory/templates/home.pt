@@ -1,0 +1,13 @@
+<html metal:use-macro="get_template('templates/main_template.pt')">
+    <title metal:fill-slot="title">The Directory</title>
+    
+    <body metal:fill-slot="body">
+        
+        <div class="container">
+
+            Home
+            
+        </div>
+        
+    </body>
+</html>
