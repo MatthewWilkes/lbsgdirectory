@@ -17,6 +17,8 @@ requires = [
     'transaction',
     'ZODB3',
     'waitress',
+    'pyproj',
+    'numpy',
     ]
 
 setup(name='lbsgdirectory',

@@ -1,6 +1,13 @@
 from persistent.mapping import PersistentMapping
 from BTrees.IOBTree import IOBTree
 
+import pyproj
+
+from lbsgdirectory.BNG import to_osgb36
+
+WGS84=pyproj.Proj("+init=EPSG:4326")
+OSGB36=pyproj.Proj("+init=EPSG:27700")
+
 class Root(PersistentMapping):
     __parent__ = __name__ = None
 
@@ -26,6 +33,10 @@ class LetterBox(object):
         self.code = code
         self.location = location
         self.gridref = gridref
+    
+    def latlon(self):
+        coords = to_osgb36(self.gridref)
+        return pyproj.transform(OSGB36, WGS84, *coords)[::-1]
     
     def __name__(self):
         return "%d" % self.id
