@@ -9,7 +9,7 @@
                     <p>A PB${context.type} letter box in ${context.town}.</p>
                 </div>
                 <div class="col-md-4">
-                    <img tal:condition="coords" src="//maps.googleapis.com/maps/api/staticmap?center=${coords[0]},${coords[1]}&amp;zoom=16&amp;size=400x400&amp;markers=color:red%7C${coords[0]},${coords[1]}&amp;sensor=false" />
+                    <img tal:condition="coords" class="img-rounded img-responsive" src="//maps.googleapis.com/maps/api/staticmap?center=${coords[0]},${coords[1]}&amp;zoom=16&amp;size=400x400&amp;markers=color:red%7C${coords[0]},${coords[1]}&amp;sensor=false" />
                     <kbd>${context.gridref}</kbd> (${context.location})
                 </div>
             </div>
