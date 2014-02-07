@@ -1,0 +1,11 @@
+<html metal:use-macro="get_template('templates/main_template.pt')">
+    <title metal:fill-slot="title">Letter box</title>
+    
+    <body metal:fill-slot="body">
+
+            <h1>All boxes</h1>
+            <ul>
+                <li tal:repeat="box boxes"><a href="/boxes/${box.id}">Box ${box.__name__()}</a></li>
+            </ul>
+    </body>
+</html>
