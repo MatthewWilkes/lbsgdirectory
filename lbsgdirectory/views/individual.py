@@ -10,5 +10,9 @@ class LetterboxViews(object):
     
     @view_config(context=LetterBox, renderer="lbsgdirectory:templates/individual.pt")
     def view_letterbox(self):
-        return {'project': 'individual', 'coords': self.context.latlon()}
+        try:
+            coords = self.context.latlon()
+        except TypeError:
+            coords = None
+        return {'project': 'individual', 'coords': coords}
     
