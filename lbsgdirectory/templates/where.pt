@@ -4,9 +4,15 @@
     <body metal:fill-slot="body">
         
         <script>
+        var options = {
+          enableHighAccuracy: true,
+          timeout: 5000,
+          maximumAge: 0
+        };
+        
         function getLocation() {
             if(navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
+        navigator.geolocation.getCurrentPosition(geoSuccess, geoError, options);
                 } else {
                     alert("Geolocation is not supported by this browser.");
                 }
@@ -24,7 +30,9 @@
 
 
         function geoError() {
-            alert("Geocoder failed.");
+            $($("#location")[0]).empty()
+            $($("#location")[0]).wrapInner("<div>Couldn't find your location</div>");
+
         }
         
         </script>
