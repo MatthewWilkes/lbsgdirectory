@@ -1,0 +1,40 @@
+<html metal:use-macro="get_template('templates/main_template.pt')">
+    <title metal:fill-slot="title">The Directory</title>
+    
+    <body metal:fill-slot="body">
+        
+        <script>
+        function getLocation() {
+            if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
+                } else {
+                    alert("Geolocation is not supported by this browser.");
+                }
+            }
+        
+        function geoSuccess(position) {
+            var lat = position.coords.latitude;
+            var lng = position.coords.longitude;
+            $($("#location")[0]).empty()
+            $($("#location")[0]).wrapInner("<div><img tal:condition='coords' class='img-rounded img-responsive' src='//maps.googleapis.com/maps/api/staticmap?center=" + lat +", " + lng + '&amp;zoom=16&amp;size=400x400&amp;markers=color:red%7C' + lat + ", " + lng + "&amp;sensor=false' /><kbd id='osref'></kbd></div>");
+            $.ajax("/where_json?lat="+lat+"&lon="+lng, async=false).success(function (data) { $("#osref").wrapInner(data['reference']);})
+            $("button.btn-primary").hide()
+        }
+
+
+
+        function geoError() {
+            alert("Geocoder failed.");
+        }
+        
+        </script>
+        
+        <div class="container">
+            <h1>Find your current location</h1>
+            <p id="location"></p>
+            <button class="btn btn-primary" onclick="javascript:getLocation();">Where am I?</button>
+            
+        </div>
+        
+    </body>
+</html>
