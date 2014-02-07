@@ -4,8 +4,9 @@
     <body metal:fill-slot="body">
 
             <h1>All boxes</h1>
-            <ul>
-                <li tal:repeat="box boxes"><a href="/boxes/${box.id}">Box ${box.__name__()}</a></li>
+            <ul tal:repeat="boxes locations">
+                <h2>${boxes[0]}</h2>
+                <li tal:repeat="box boxes[1]"><a href="/boxes/${box.id}">Box ${box.__name__()}</a></li>
             </ul>
     </body>
 </html>

@@ -1,4 +1,5 @@
 import csv
+import itertools
 
 from pyramid.view import view_config, view_defaults
 
@@ -13,7 +14,12 @@ class LetterboxListingView(object):
     
     @view_config(context=Boxes, renderer="lbsgdirectory:templates/boxes.pt")
     def view_letterbox(self):
-        return {'boxes':self.context.values()}
+        boxes = self.context.values()
+        town = lambda box: box.town
+        boxes = sorted(boxes, key=town)
+        locations = itertools.groupby(boxes, town)
+        locations = [(town, list(boxes)) for (town, boxes) in locations]
+        return {'locations':locations}
     
     @view_config(context=Root, renderer="lbsgdirectory:templates/boxes.pt", name="import")
     def import_letterboxes(self):
